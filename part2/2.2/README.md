@@ -1,0 +1,14 @@
+### 2.2
+devopsdockeruh/ports_exercise starts a web service that will answer in port 80
+
+Create a docker-compose.yml and use it to start the service so that you can use it with your browser.
+
+Submit the docker-compose.yml, make sure that it works simply by running docker-compose up
+
+### Solution
+```
+docker-compose up
+```
+> Ports configured correctly!!
+
+![ports-compose](screenshot.jpg)
