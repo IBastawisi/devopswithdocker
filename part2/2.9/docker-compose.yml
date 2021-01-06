@@ -1,0 +1,43 @@
+version: '3.5'
+services:
+  nginx: 
+    image: nginx:latest
+    container_name: production_nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - 'frontend'
+      - 'backend'
+  frontend:
+      image: 'frontend-example'
+      environment:
+        - API_URL=/api/
+
+  backend:
+      image: 'backend-example'
+      environment:
+        - FRONT_URL=/
+        - REDIS=redis
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=postgres
+        - DB_NAME=postgres
+        - DB_HOST=postgres
+  redis:
+      image: redis
+      container_name: redis
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - database:/var/lib/postgresql/data
+    container_name: postgres
+
+volumes:
+  database:

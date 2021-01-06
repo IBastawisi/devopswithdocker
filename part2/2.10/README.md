@@ -1,0 +1,16 @@
+### 2.10
+Some buttons may have stopped working in the frontend + backend project. Make sure that every button for exercises works.
+
+This may need a peek into the browsers developer consoles again like back part 1. The buttons of nginx exercise and the first button behave differently but you want them to match.
+
+If you had to do any changes explain what you had to change.
+
+Submit the docker-compose yml and both dockerfiles.
+
+### Solution
+```
+docker-compose up
+```
+> All Green!
+
+![nginx](screenshot.jpg)
